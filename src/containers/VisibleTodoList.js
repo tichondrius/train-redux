@@ -18,19 +18,19 @@ const TodoList = ({
 const getVisibieTodos = (todos, filter) => {
   console.log(filter);
   switch (filter) {
-    case 'SHOW_ALL' :
+    case 'all' :
       return todos;
-    case 'SHOW_COMPLETED' :
+    case 'completed' :
       return todos.filter(t => t.completed)
-    case 'SHOW_ACTIVE':
+    case 'active':
       return todos.filter(t => !t.completed)
     default:
       return todos
   }
 }
 
-const mapStateToProps = (state) => ({
-    todos: getVisibieTodos(state.todos, state.visibilityFilter)
+const mapStateToProps = (state, ownProps) => ({
+    todos: getVisibieTodos(state.todos, ownProps.filter)
 })
 
 const mapDispatchToProps = (dispatch) => ({

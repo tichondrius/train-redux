@@ -1,3 +1,5 @@
+var uuid = require('uuid-v4');
+
 export const getVisibleTodos = (todos, filter) => {
   switch(filter)
   {
@@ -13,7 +15,7 @@ export const getVisibleTodos = (todos, filter) => {
 let nextId = 0;
 export const addTodo = (text) => ({
     type: 'ADD_TODO',
-    id: nextId++,
+    id: uuid(),
     text
 });
 
